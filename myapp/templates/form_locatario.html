@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+
+{% block title %}Cadastrar Locatário{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class "card"
+<div class="container"> 
+    <div class="d-flex gap-4 mt-3">
+ 
+        <img src="{% static 'images/locatario.svg' %}" class="card-image" width="100%" height="500" alt="client">
+  
+        <form class="col-md-6" action="{% url 'criar_locatario' %}" method="post">
+            {% csrf_token %}
+            <h3>Cadastrar Locatário</h3>
+            {% for field in form %}
+            <div class="mt-3">
+                {{field.label}}
+                {{field}}
+            </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-primary mt-3" value="Salvar">
+        </form>
+    </div>
+    </div> 
+</div>
+{% endblock %}
